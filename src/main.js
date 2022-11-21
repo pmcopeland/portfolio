@@ -6,4 +6,7 @@ import VueFullPage from 'vue-fullpage.js'
 
 const app = createApp(App)
 app.use(VueFullPage)
+
+
+
 app.mount('#app')
