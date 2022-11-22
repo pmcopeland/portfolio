@@ -1,7 +1,6 @@
 <template>
     <div style="height: 100%">
-        <chromaticAbbrasion text="Sample Text" :triggerAnimation="triggerAnimation"></ChromaticAbbrasion>
-        <chromaticAbbrasion text="Paul Copeland"></ChromaticAbbrasion>
+        <chromaticAbbrasion text="Sample Text" ></ChromaticAbbrasion>
     </div>
 </template>
 
