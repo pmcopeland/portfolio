@@ -36,8 +36,10 @@ export default {
     return {
       options: {
         // There is no way to use fullpage without hardcoding keys
-        licenseKey: '14K1J-QQW0I-50CK9-J2TS6-NORAO'
-      }
+        licenseKey: '14K1J-QQW0I-50CK9-J2TS6-NORAO',
+        anchors: ['welcome', 'aboutMe', 'moreDetails', 'contactMe'],
+        scrollBar: true,
+      },
 
     }
   }
