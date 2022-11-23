@@ -1,6 +1,15 @@
 <template>
-    <MqResponsive target="md">
-        <chromaticAbbrasion text="Sample Text" ></ChromaticAbbrasion>
+
+    <!-- Med and above layout -->
+    <MqResponsive target="md+">
+        <div class="centered">
+            <chromaticAbbrasion :text="this.name"></ChromaticAbbrasion>
+        </div>
+    </MqResponsive>
+
+    <!-- small layout -->
+    <MqResponsive target="sm">
+        <chromaticAbbrasion :text="this.name"></ChromaticAbbrasion>
     </MqResponsive>
 </template>
 
@@ -11,8 +20,14 @@ import { MqResponsive } from "vue3-mq";
 export default {
     components: {
         ChromaticAbbrasion,
-    MqResponsive},
-    
+        MqResponsive
+    },
+    data() {
+        return {
+            name: "Paul Copeland"
+        };
+    }
+
 }
 </script>
 
@@ -20,5 +35,12 @@ export default {
 body {
     background-color: black;
     color: white;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-25%, -50%);
 }
 </style>
