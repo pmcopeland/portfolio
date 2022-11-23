@@ -9,7 +9,7 @@
         <AboutMe></AboutMe>
       </div>
       <div class="section">
-        <MoreDetails></MoreDetails>
+        <Projects></Projects>
       </div>
       <div class="section">
         <ContactMe></ContactMe>
@@ -21,14 +21,14 @@
 <script>
 import FirstPage from "./components/FirstPage.vue";
 import AboutMe from "./components/AboutMe.vue";
-import MoreDetails from "./components/MoreDetails.vue";
+import Projects from "./components/Projects.vue";
 import ContactMe from "./components/ContactMe.vue";
 
 export default {
   components: {
     FirstPage,
     AboutMe,
-    MoreDetails,
+    Projects,
     ContactMe
   },
 

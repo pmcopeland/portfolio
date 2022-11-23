@@ -1,14 +1,17 @@
 <template>
-    <div style="height: 100%">
+    <MqResponsive target="md">
         <chromaticAbbrasion text="Sample Text" ></ChromaticAbbrasion>
-    </div>
+    </MqResponsive>
 </template>
 
 <script>
 import ChromaticAbbrasion from './ChromaticAbbrasion.vue';
+import { MqResponsive } from "vue3-mq";
 
 export default {
-    components: { ChromaticAbbrasion },
+    components: {
+        ChromaticAbbrasion,
+    MqResponsive},
     
 }
 </script>
