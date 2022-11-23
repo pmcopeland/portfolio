@@ -10,7 +10,6 @@
 </template>
 
 <script>
-const abbrasionStrength = 5; //offset by one, will probably revisit later
 
 export default {
     created() {
@@ -22,12 +21,6 @@ export default {
 
 
     methods: {
-        calculateStrength(event) {
-            this.strengthPercent = event.clientY / window.innerHeight;
-            this.strength = ((this.strengthPercent * abbrasionStrength) + 2 + "px");
-            this.negativeStrength = (-(this.strengthPercent * abbrasionStrength) - 2 + "px");
-        },
-
         triggerAnimation() {
             console.log("trigger animation")
             this.runAnimation = true;
@@ -141,7 +134,7 @@ data() {
 @keyframes chromaticRed {
     0% {
 
-        left: -60px;
+        left: -10px;
         text-shadow: 0px 0px 30px #ff0000;
     }
 
@@ -164,7 +157,7 @@ data() {
 
 @keyframes chromaticBlue {
     0% {
-        left: 60px;
+        left: 10px;
         text-shadow: 0px 0px 30px #0000ff;
     }
 
