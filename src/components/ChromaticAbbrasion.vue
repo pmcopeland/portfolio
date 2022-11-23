@@ -1,8 +1,10 @@
 <template>
-    <div class="chromatic-container" @mouseover="hover = true" @mouseleave="hover = false">
-        <div class="text chromatic red" :class="{ active: hover, animate: runAnimation }"> {{ text }}</div>
-        <div class="text chromatic green" :class="{ active: hover, animate: runAnimation }">{{ text }}</div>
-        <div class="text chromatic blue" :class="{ active: hover, animate: runAnimation }">{{ text }}</div>
+    <div class="container text" @mouseover="hover = true" @mouseleave="hover = false">
+        <!-- ITEMS MOVE RELATIVE TO GREEN -->
+        <div class="chromatic green" :class="{ active: hover, animate: runAnimation }">{{ text }} <div
+                class="chromatic red" :class="{ active: hover, animate: runAnimation }"> {{ text }}</div>
+            <div class="chromatic blue" :class="{ active: hover, animate: runAnimation }">{{ text }}</div>
+        </div>
     </div>
 </template>
 
@@ -75,23 +77,30 @@ export default {
 </script>
 
 <style>
+.container {
+    position: relative;
+    display: relative;
+}
+
+
 .text {
     font-size: 8em;
     font-family: "Bebas Neue", serif;
     text-align: center;
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 
 .chromatic {
     mix-blend-mode: screen;
-    position: absolute;
 
 }
 
 .red {
     color: #ff0000;
     left: -2px;
+    top: 0px;
     text-shadow: 0px 0px 10px #ff0000;
+    position: absolute
 }
 
 .red.animate {
@@ -102,8 +111,9 @@ export default {
 
 .green {
     color: #00ff00;
+    left: 0;
     text-shadow: 0px 0px 10px #00ff00;
-
+    position: relative
 }
 
 .green.animate {
@@ -114,7 +124,9 @@ export default {
 .blue {
     color: #0000ff;
     left: 2px;
+    top: 0px;
     text-shadow: 0px 0px 10px #0000ff;
+    position: absolute
 }
 
 .blue.animate {
@@ -128,7 +140,7 @@ export default {
 @keyframes chromaticRed {
     0% {
 
-        left: -6px;
+        left: -8px;
         text-shadow: 0px 0px 30px #ff0000;
     }
 
@@ -151,7 +163,7 @@ export default {
 
 @keyframes chromaticBlue {
     0% {
-        left: 6px;
+        left: 8px;
         text-shadow: 0px 0px 30px #0000ff;
     }
 
