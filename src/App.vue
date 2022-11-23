@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <full-page ref="fullpage" :options="options" id="fullpage">
+    <full-page ref="fullpage" class="fullpage" :options="options" id="fullpage">
       <div class="section">
-        <FirstPage></FirstPage>
+        <FirstPage class="page"></FirstPage>
       </div>
       <div class="section">
         <AboutMe></AboutMe>
@@ -50,5 +50,13 @@ export default {
 </script>
 
 <style>
+.fullpage {
+  height: max-content;
+}
+
+.fp-overflow {
+  height: 100%;
+  width: 100%;
+}
 
 </style>
