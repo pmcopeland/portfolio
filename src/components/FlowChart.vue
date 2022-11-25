@@ -5,7 +5,7 @@
     </div>
 </template>
 <script>
-import VueAnime from 'vue-animejs';
+import Anime from 'animejs';
 
 const order = {
     "1": ["2"],
