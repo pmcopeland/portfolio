@@ -9,6 +9,6 @@ const app = createApp(App)
 
 app.use(VueFullPage)
 app.use(Vue3Mq);
-Vue.use(VueAnime);
+app.use(VueAnime);
 
 app.mount('#app')
