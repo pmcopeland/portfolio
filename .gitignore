@@ -25,3 +25,4 @@ dist-ssr
 
 # notes and various dev stuff
 notes.md
+*.mjs

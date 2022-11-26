@@ -1,13 +1,13 @@
 <template>
 <div>About Me!</div>  
-<FlowChart></FlowChart>
+<FlowChartController></FlowChartController>
 </template>
 
 <script>
 import * as d3 from "d3";
-import FlowChart from "./FlowChart.vue";
+import FlowChartController from "./FlowChartController.vue";
 export default {
-    components: {FlowChart}
+    components: {FlowChartController}
 
 }
 </script>
