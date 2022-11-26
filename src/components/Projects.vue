@@ -1,5 +1,5 @@
 <template>
-<div>More Details!</div>  
+<div>Projects!</div>  
 </template>
 
 <script>
