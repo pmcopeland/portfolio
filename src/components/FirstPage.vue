@@ -5,6 +5,7 @@
         <chromaticAbbrasion :text="this.name"></ChromaticAbbrasion>
         <div class="infobox">
             <h1>Hey there!</h1>
+            <h2>This site is in progress. <a href="https://github.com/pmcopeland/portfolio/">Feel free to follow along on the repo.</a></h2>
             <p>
                 In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the
                 visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used
@@ -73,5 +74,14 @@ body {
     line-height: 1.8;
     padding: 2rem;
     border-radius: 15px;
+}
+
+
+a:link {
+  color: #AAAAAA;
+}
+
+a:visited {
+  color: #888888;
 }
 </style>
