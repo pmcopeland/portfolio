@@ -2,6 +2,9 @@
     <div>
         <button @click="getNextObj(this.curObj)"> a button </button>
         {{ this.curObj }}
+        {{ this.timer  }}
+        <br>
+        {{ this.visitedObj }}
         <br>
         <FlowChartSVG />
     </div>
@@ -48,8 +51,15 @@ const order = {
 
 export default {
     components: {
-        FlowChartSVG,
-        svg
+        FlowChartSVG
+    },
+    mounted: function () {
+        this.timer = setInterval(() => {
+            this.getNextObj(this.curObj)
+        }, 500)
+    },
+    beforeDestroy() {
+        clearInterval(this.timer)
     },
     methods: {
         highlightSVGElement(prevObj, nextObj) {
@@ -61,9 +71,11 @@ export default {
             } catch { }
         },
         getNextObj(prevObj) {
-            // debugger;
             if (prevObj == "END") {
-                this.curObj = "START"
+                this.curObj = "START";
+                this.visitedObj.forEach(obj => document.querySelector("#" + obj).style.fill = "rgba(0,0,0,0)")
+                this.visitedObj = []
+
             } else {
                 let possibleObjs = order[prevObj]
                 let nextObj = ""
@@ -76,13 +88,18 @@ export default {
                 }
                 console.log("NextObj: ", nextObj);
                 this.curObj = nextObj;
+                if (prevObj != "START" && prevObj != "END") {
+                    this.visitedObj.push(prevObj)
+                }
                 this.highlightSVGElement(prevObj, nextObj)
             }
         },
     },
     data() {
         return {
-            curObj: "START"
+            curObj: "START",
+            visitedObj: [],
+            timer: null
         }
     }
 }
