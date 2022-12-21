@@ -2,7 +2,7 @@
     <div>
         <button @click="getNextObj(this.curObj)"> a button </button>
         {{ this.curObj }}
-        {{ this.timer  }}
+        {{ this.timer }}
         <br>
         {{ this.visitedObj }}
         <br>
@@ -51,17 +51,46 @@ const order = {
 
 export default {
     components: {
-        FlowChartSVG
+        FlowChartSVG,
+        Anime
     },
-    mounted: function () {
-        this.timer = setInterval(() => {
-            this.getNextObj(this.curObj)
-        }, 500)
-    },
+    // mounted: function () {
+    //     this.timer = setInterval(() => {
+    //         this.getNextObj(this.curObj)
+    //     }, 500)
+    // },
     beforeDestroy() {
         clearInterval(this.timer)
     },
     methods: {
+        animateArrow(prevObj, nextObj) {
+            let target = "#" + prevObj + "t" + nextObj;
+
+            console.log(target)
+
+            let items = document.querySelector(target).childNodes
+
+            items.forEach(async (item) => {
+                console.log(item)
+                console.log(item.getTotalLength())
+
+                let animationDur = 500 * (item.getTotalLength() / 100)
+
+                console.log(animationDur)
+
+                Anime({
+                    targets: document.getElementById(item.id),
+                    strokeDashoffset: [Anime.setDashoffset, 0],
+                    easing: 'linear',
+                    duration: animationDur,
+                    direction: 'alternate',
+                    loop: false
+                })
+                setTimeout(() => { this.highlightSVGElement(prevObj, nextObj) },
+                animationDur)
+                
+            });
+        },
         highlightSVGElement(prevObj, nextObj) {
             try {
                 document.querySelector("#" + prevObj).style.fill = "#333333";
@@ -91,7 +120,7 @@ export default {
                 if (prevObj != "START" && prevObj != "END") {
                     this.visitedObj.push(prevObj)
                 }
-                this.highlightSVGElement(prevObj, nextObj)
+                this.animateArrow(prevObj, nextObj)
             }
         },
     },
@@ -99,7 +128,7 @@ export default {
         return {
             curObj: "START",
             visitedObj: [],
-            timer: null
+            timer: 3
         }
     }
 }
