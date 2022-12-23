@@ -11,14 +11,6 @@
 <script>
 
 export default {
-    created() {
-        window.addEventListener('mousemove', this.calculateStrength, false);
-    },
-    beforeDestroy() {
-        window.removeEventListener('mousemove', this.calculateStrength());
-    },
-
-
     methods: {
         triggerAnimation() {
             this.runAnimation = true;

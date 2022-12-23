@@ -31,7 +31,7 @@ import FlowChartSVG from './FlowChartSVG.vue';
 
 /* Flow */
 const order = {
-    "START": ["q1"], // HMTL4 does not allow to select el IDs that are only numbers
+    "RESET": ["q1"], // HTML4 does not allow to select el IDs that are only numbers
     "q1": ["q2"],    // so everything starts with q
     "q2": ["q3", "q2A"],
     "q2A": ["q2A2"],
@@ -42,10 +42,11 @@ const order = {
     "q3A3": ["q5"],
     "q4": ["q5"],
     "q5": ["q6"],
-    "q6": ["END"]
+    "q6": ["RESET"],
 };
 
-
+const activeColor = "#FFFFFF"
+const vistedColor = "#333333"
 
 
 
@@ -54,81 +55,89 @@ export default {
         FlowChartSVG,
         Anime
     },
-    // mounted: function () {
-    //     this.timer = setInterval(() => {
-    //         this.getNextObj(this.curObj)
-    //     }, 500)
-    // },
+    mounted: function () {
+        this.$nextTick(function () {
+            this.getNextObj(this.curObj)
+        })
+    },
     beforeDestroy() {
         clearInterval(this.timer)
     },
     methods: {
         animateArrow(prevObj, nextObj) {
+            console.log(prevObj, nextObj)
             let target = "#" + prevObj + "t" + nextObj;
-
-            console.log(target)
-
             let items = document.querySelector(target).childNodes
 
-            items.forEach(async (item) => {
-                console.log(item)
-                console.log(item.getTotalLength())
+            if (items) {
+                items.forEach(async (item) => {
+                    console.log(item)
+                    console.log(item.getTotalLength())
 
-                let animationDur = 500 * (item.getTotalLength() / 100)
+                    let animationDur = 500 * (item.getTotalLength() / 100)
 
-                console.log(animationDur)
+                    console.log(animationDur)
 
-                Anime({
-                    targets: document.getElementById(item.id),
-                    strokeDashoffset: [Anime.setDashoffset, 0],
-                    easing: 'linear',
-                    duration: animationDur,
-                    direction: 'alternate',
-                    loop: false
+                    Anime({
+                        targets: document.getElementById(item.id),
+                        strokeDashoffset: [Anime.setDashoffset, 0],
+                        easing: 'linear',
+                        duration: animationDur,
+                        direction: 'alternate',
+                        loop: false
+                    })
+                    setTimeout(() => {
+                        console.log(prevObj, nextObj)
+                        this.highlightSVGElement(prevObj, vistedColor);
+                        this.highlightSVGElement(nextObj, activeColor);
+                        this.getNextObj(this.curObj)
+                    },
+                        animationDur + 500)
+
                 })
-                setTimeout(() => { this.highlightSVGElement(prevObj, nextObj) },
-                animationDur)
-                
-            });
+
+            }
+
         },
-        highlightSVGElement(prevObj, nextObj) {
-            try {
-                document.querySelector("#" + prevObj).style.fill = "#333333";
-            } catch { }
-            try {
-                document.querySelector("#" + nextObj).style.fill = "white";
-            } catch { }
+        highlightSVGElement(obj, color) {
+            document.querySelector("#" + obj).style.fill = color;
         },
-        getNextObj(prevObj) {
-            if (prevObj == "END") {
-                this.curObj = "START";
+        resetFlowChart() {
+            setTimeout(() => {
                 this.visitedObj.forEach(obj => document.querySelector("#" + obj).style.fill = "rgba(0,0,0,0)")
                 this.visitedObj = []
-
-            } else {
-                let possibleObjs = order[prevObj]
-                let nextObj = ""
-                if (possibleObjs.length > 1) {
-                    let objPos = Math.floor(Math.random() * (possibleObjs.length))
-                    console.log(objPos)
-                    nextObj = possibleObjs[objPos]
-                } else {
-                    nextObj = possibleObjs[0]
-                }
-                console.log("NextObj: ", nextObj);
-                this.curObj = nextObj;
-                if (prevObj != "START" && prevObj != "END") {
-                    this.visitedObj.push(prevObj)
-                }
-                this.animateArrow(prevObj, nextObj)
-            }
+                this.getNextObj("q1")
+                this.highlightSVGElement("q1", activeColor);
+            }, 1500)
         },
+        getNextObj(prevObj) {
+
+            let possibleObjs = order[prevObj]
+            let nextObj = ""
+            if (possibleObjs.length > 1) {
+                let objPos = Math.floor(Math.random() * (possibleObjs.length))
+                console.log(objPos)
+                nextObj = possibleObjs[objPos]
+            } else {
+                nextObj = possibleObjs[0]
+            }
+            console.log("NextObj: ", nextObj);
+            this.curObj = nextObj;
+            this.visitedObj.push(prevObj)
+
+
+            if (this.curObj != "RESET") {
+                this.animateArrow(prevObj, nextObj)
+            } else {
+                this.resetFlowChart()
+            }
+        }
     },
     data() {
         return {
-            curObj: "START",
+            curObj: "q1",
             visitedObj: [],
-            timer: 3
+            timer: null
         }
     }
 }
