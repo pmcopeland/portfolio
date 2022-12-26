@@ -45,8 +45,8 @@ const order = {
     "q6": ["RESET"],
 };
 
-const activeColor = "#FFFFFF"
-const vistedColor = "#333333"
+const activeColor = "#444444"
+const vistedColor = "#222222"
 
 
 
@@ -88,8 +88,8 @@ export default {
                     })
                     setTimeout(() => {
                         console.log(prevObj, nextObj)
-                        this.highlightSVGElement(prevObj, vistedColor);
-                        this.highlightSVGElement(nextObj, activeColor);
+                        this.visitedSVGElement(prevObj);
+                        this.activeSVGElement(nextObj);
                         this.getNextObj(this.curObj)
                     },
                         animationDur + 500)
@@ -99,15 +99,19 @@ export default {
             }
 
         },
-        highlightSVGElement(obj, color) {
-            document.querySelector("#" + obj).style.fill = color;
+        activeSVGElement(obj) {
+            document.querySelector("#" + obj).classList.add("active")
+        },
+        visitedSVGElement(obj) {
+            document.querySelector("#" + obj).classList.replace("active", "visited")
         },
         resetFlowChart() {
             setTimeout(() => {
-                this.visitedObj.forEach(obj => document.querySelector("#" + obj).style.fill = "rgba(0,0,0,0)")
+                this.visitedObj.forEach(obj => document.querySelector("#" + obj).classList.remove("visited"))
+                this.visitedObj.forEach(obj => document.querySelector("#" + obj).classList.remove("active"))
                 this.visitedObj = []
                 this.getNextObj("q1")
-                this.highlightSVGElement("q1", activeColor);
+                this.activeSVGElement("q1");
             }, 1500)
         },
         getNextObj(prevObj) {
@@ -146,10 +150,10 @@ export default {
 
 <style>
 .visited {
-    fill: darkgrey;
+    fill: #222222 !important;
 }
 
 .active {
-    fill: white;
+    fill: #444444 !important;
 }
 </style>
