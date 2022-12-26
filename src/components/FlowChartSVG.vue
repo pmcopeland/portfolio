@@ -48,6 +48,7 @@
          style="stroke-width:3" />
     </g>
     <rect
+        class="shape"
        x="180"
        y="0"
        width="120"
@@ -58,7 +59,7 @@
        stroke="rgb(100, 100, 100)"
        pointer-events="all"
        id="q1"
-       style="fill:none;stroke-width:3;stroke-dasharray:none" />
+        />
     <g
        id="q2tq2A"
        transform="matrix(1.1110255,0,0,1,-33.307646,0)">
@@ -84,13 +85,14 @@
          style="stroke-width:3" />
     </g>
     <path
+    class="shape"
        d="M 240 120 L 300 160 L 240 200 L 180 160 Z"
        fill="rgb(255, 255, 255)"
        stroke="rgb(100, 100, 100)"
        stroke-miterlimit="10"
        pointer-events="all"
        id="q2"
-       style="fill:none;stroke-width:3;stroke-dasharray:none" />
+        />
     <g
        id="q2Atq2A2"
        transform="matrix(1,0,0,1.1110255,0,-22.205098)">
@@ -104,6 +106,7 @@
          style="stroke-width:3" />
     </g>
     <rect
+    class="shape"
        x="360"
        y="120"
        width="120"
@@ -114,7 +117,7 @@
        stroke="rgb(100, 100, 100)"
        pointer-events="all"
        id="q2A"
-       style="fill:none;stroke-width:3;stroke-dasharray:none" />
+        />
     <g
        id="q2A2tq5"
        transform="matrix(1.0564015,0,0,0.99982672,-23.751719,0.079839)">
@@ -128,6 +131,7 @@
          style="stroke-width:3" />
     </g>
     <rect
+    class="shape"
        x="360"
        y="260"
        width="120"
@@ -138,7 +142,7 @@
        stroke="rgb(100, 100, 100)"
        pointer-events="all"
        id="q2A2"
-       style="fill:none;stroke-width:3;stroke-dasharray:none" />
+        />
     <g
        id="q3tq3A"
        transform="matrix(1.1295297,0,0,1,-23.315352,0)">
@@ -164,13 +168,14 @@
          style="stroke-width:3" />
     </g>
     <path
+    class="shape"
        d="M 240 260 L 300 300 L 240 340 L 180 300 Z"
        fill="rgb(255, 255, 255)"
        stroke="rgb(100, 100, 100)"
        stroke-miterlimit="10"
        pointer-events="all"
        id="q3"
-       style="fill:none;stroke-width:3;stroke-dasharray:none" />
+        />
     <g
        id="q4tq5"
        transform="matrix(1,0,0,1.0832691,0,-39.969176)">
@@ -184,6 +189,7 @@
          style="stroke-width:3" />
     </g>
     <rect
+    class="shape"
        x="180"
        y="400"
        width="120"
@@ -194,7 +200,7 @@
        stroke="rgb(100, 100, 100)"
        pointer-events="all"
        id="q4"
-       style="fill:none;stroke-width:3;stroke-dasharray:none" />
+        />
     <g
        id="q3A2tq3A3"
        transform="matrix(1,0,0,1.1017734,0,-48.851215)">
@@ -208,6 +214,7 @@
          style="stroke-width:3" />
     </g>
     <rect
+    class="shape"
        x="0"
        y="400"
        width="120"
@@ -218,7 +225,7 @@
        stroke="rgb(100, 100, 100)"
        pointer-events="all"
        id="q3A2"
-       style="fill:none;stroke-width:3;stroke-dasharray:none" />
+        />
     <g
        id="q3Atq3A2"
        transform="matrix(1,0,0,1.0925212,0,-31.457221)">
@@ -232,13 +239,14 @@
          style="stroke-width:3" />
     </g>
     <path
+    class="shape"
        d="M 60 260 L 120 300 L 60 340 L 0 300 Z"
        fill="rgb(255, 255, 255)"
        stroke="rgb(100, 100, 100)"
        stroke-miterlimit="10"
        pointer-events="all"
        id="q3A"
-       style="fill:none;stroke-width:3;stroke-dasharray:none" />
+        />
     <g
        id="q3Atq1"
        transform="matrix(1.0607405,0,0,0.99980551,-3.5765094,0.02805577)">
@@ -264,6 +272,7 @@
          style="stroke-width:3" />
     </g>
     <rect
+    class="shape"
        x="180"
        y="540"
        width="120"
@@ -274,7 +283,7 @@
        stroke="rgb(100, 100, 100)"
        pointer-events="all"
        id="q5"
-       style="fill:none;stroke-width:3;stroke-dasharray:none" />
+        />
     <g
        id="q3A3tq5"
        transform="matrix(1.1017734,0,0,1,-12.212804,-0.74428711)">
@@ -288,6 +297,7 @@
          style="stroke-width:3" />
     </g>
     <rect
+    class="shape"
        x="0"
        y="540"
        width="120"
@@ -298,8 +308,9 @@
        stroke="rgb(100, 100, 100)"
        pointer-events="all"
        id="q3A3"
-       style="fill:none;stroke-width:3;stroke-dasharray:none" />
+        />
     <rect
+    class="shape"
        x="180"
        y="680"
        width="120"
@@ -310,7 +321,7 @@
        stroke="rgb(100, 100, 100)"
        pointer-events="all"
        id="q6"
-       style="fill:none;stroke-width:3;stroke-dasharray:none" />
+        />
   </g>
 </svg>
 

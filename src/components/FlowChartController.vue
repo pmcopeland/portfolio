@@ -74,7 +74,7 @@ export default {
                     console.log(item)
                     console.log(item.getTotalLength())
 
-                    let animationDur = 500 * (item.getTotalLength() / 100)
+                    let animationDur = 1000 * (item.getTotalLength() / 100)
 
                     console.log(animationDur)
 
@@ -90,9 +90,14 @@ export default {
                         console.log(prevObj, nextObj)
                         this.visitedSVGElement(prevObj);
                         this.activeSVGElement(nextObj);
-                        this.getNextObj(this.curObj)
+                        setTimeout(() => {
+                            this.getNextObj(this.curObj)
+                        },
+                            1000)
                     },
-                        animationDur + 500)
+                        animationDur)
+
+
 
                 })
 
@@ -112,7 +117,7 @@ export default {
                 this.visitedObj = []
                 this.getNextObj("q1")
                 this.activeSVGElement("q1");
-            }, 1500)
+            }, 500)
         },
         getNextObj(prevObj) {
 
@@ -149,6 +154,13 @@ export default {
 </script>
 
 <style>
+.shape {
+    fill: #181818;
+    stroke-width: 3;
+    stroke-dasharray: none;
+    transition: fill 1.5s
+}
+
 .visited {
     fill: #222222 !important;
 }
